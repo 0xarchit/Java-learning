@@ -7,7 +7,7 @@ public class Input {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter Your Name: ");
-        String name = scanner.nextLine(); //also use next for first word only
+        String name = scanner.nextLine();
 
         System.out.print("Enter Your Age: ");
         int age = scanner.nextInt();
