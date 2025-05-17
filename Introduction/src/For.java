@@ -15,6 +15,7 @@ public class For {
 //        for (int i = 10; i > 0; i -= 3){
 //            System.out.println(i);
 //        }
+
         System.out.print("Enter Loops: ");
         int max = scanner.nextInt();
 
