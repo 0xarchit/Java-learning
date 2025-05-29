@@ -1,0 +1,5 @@
+3 most used options for reading file using java
+
+> BufferedReader + FileReader = best for reading text files line-by-line
+> FileInputStream = best for binary files like images, audio files, etc
+> RandomAccessFile = best for read/write specific portions of large file

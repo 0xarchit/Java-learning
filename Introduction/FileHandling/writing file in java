@@ -1,0 +1,6 @@
+4 most used options for writing file using java
+
+> FileWriter = good for small or medium sized text files
+> BufferedWriter = better performance for large amounts of text
+> PrintWriter = best for structured data like reports or logs
+> FileOutputStream = best for binary files like images, audio, etc
