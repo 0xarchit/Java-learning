@@ -21,6 +21,10 @@ public class basic {
         System.out.println(subsets(new int[] {1,2,3}, 0));
         subsetString("abcd", 0, "");
         subsetsArray(new int[] {1,2,3,4}, 0, new ArrayList<>());
+        System.out.println();
+        System.out.println(subarrayTargetSum(new int[]{2,2,4,8}, 0, 9, 0));
+        System.out.println(subarrayTargetSum2(new int[]{2,2,4,8}, 0, 9, 0));
+        System.out.println(maxSubArraySum(new int[]{2,2,4,8}, 0));
     }
     static void one2ten(int n){
         if(n==11) return;
@@ -100,5 +104,26 @@ public class basic {
         }
         subsetString(str, idx+1, tmp+str.charAt(idx));
         subsetString(str, idx+1, tmp);
+    }
+    static boolean subarrayTargetSum(int[] arr, int idx, int target, int cur){
+        if(idx == arr.length) return cur == target;
+        boolean take = subarrayTargetSum(arr, idx+1, target, cur+arr[idx]);
+        boolean notTake = subarrayTargetSum(arr, idx+1, target, cur);
+
+        return take || notTake;
+    }
+    static int subarrayTargetSum2(int[] arr, int idx, int target, int cur){
+        if(idx == arr.length) return cur==target?1:0;
+
+        int take = subarrayTargetSum2(arr, idx+1, target, cur+arr[idx]);
+        int notTake = subarrayTargetSum2(arr, idx+1, target, cur);
+
+        return take + notTake;
+    }
+    static int maxSubArraySum(int[] arr, int idx){
+        if(idx == arr.length) return 0;
+        int take = arr[idx] + maxSubArraySum(arr, idx+1);
+        int notTake = maxSubArraySum(arr, idx+1);
+        return Math.max(take, notTake);
     }
 }
