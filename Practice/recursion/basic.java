@@ -1,6 +1,6 @@
 package recursion;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class basic {
     public static void main(String[] args) {
@@ -25,6 +25,8 @@ public class basic {
         System.out.println(subarrayTargetSum(new int[]{2,2,4,8}, 0, 9, 0));
         System.out.println(subarrayTargetSum2(new int[]{2,2,4,8}, 0, 9, 0));
         System.out.println(maxSubArraySum(new int[]{2,2,4,8}, 0));
+        System.out.println("Premutation");
+        permute(new int[] {1,2,3}, 0);
     }
     static void one2ten(int n){
         if(n==11) return;
@@ -125,5 +127,22 @@ public class basic {
         int take = arr[idx] + maxSubArraySum(arr, idx+1);
         int notTake = maxSubArraySum(arr, idx+1);
         return Math.max(take, notTake);
+    }
+    static void permute(int[] arr, int start){
+        if(start == arr.length){
+            System.out.println(Arrays.toString(arr));
+            return;
+        };
+        for(int i=start;i<arr.length;i++){
+            int tmp =  arr[i];
+            arr[i] = arr[start];
+            arr[start] = tmp;
+
+            permute(arr, start+1);
+
+            tmp =  arr[i];
+            arr[i] = arr[start];
+            arr[start] = tmp;
+        }
     }
 }
